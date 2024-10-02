@@ -21,7 +21,7 @@ public class connectFour
 				System.out.println("E | " + " " + " | " + " " + " | " + " " + " | " + " " + " | " + " " + " | " + " " + " | ");
 				System.out.println("  -------------------------");
 				
-
+				System.out.println("Meaningless comment. I did the homework!");
 			}
 		
 		public static void greetUser() 
