@@ -6,12 +6,22 @@ public class connectFour
 		
 		static String[][] board = new String[5][6];
 		
+			
+		
 		public static void main(String[] args)
 			{
+				
+				
+				
 				greetUser();
 				prepareBoard();
 				displayBoard();
-				playGame();
+				playGameOne();
+				displayBoard();
+				
+				
+				
+				//playGameOne();
 				
 				
 				
@@ -24,16 +34,11 @@ public class connectFour
 			System.out.println(" ");
 			
 			Scanner userInput = new Scanner (System.in);
-			System.out.println("Player 1, please enter your name:");
-			String nameOne = userInput.nextLine();
-			System.out.println("Hello, " + nameOne);
-			System.out.println("Your pieces will be indicated by 'x'");
+			
+			System.out.println("Player 1, your pieces will be indicated by 'x'");
 			System.out.println(" ");
 			
-			System.out.println("Player 2, please enter your name:");
-			String nameTwo = userInput.nextLine();
-			System.out.println("Hello, " + nameTwo);
-			System.out.println("Your pieces will be indicated by 'o'");
+			System.out.println("Player 2, your pieces will be indicated by 'o'");
 			System.out.println(" ");
 			
 			System.out.println("Press enter to see the Connect Four board.");
@@ -72,15 +77,70 @@ public class connectFour
 				System.out.println(" -------------------------");
 			}
 		
-		public static void playGame()
+		public static void playGameOne()
 			{
-				//row counter set to 4
 				
-				//when you 
-				//[]rowCounter
-				// 5 variables
+				int columnA = 4;
+				int columnB = 4;
+				int columnC = 4;
+				int columnD = 4;
+				int columnE = 4;
+				int columnF = 4;
+				
+				
+				Scanner userInput = new Scanner (System.in);
+				System.out.println("Player 1, which column do you want to put a piece in?");
+				String answerOne = userInput.nextLine();
+				System.out.println("You chose " + answerOne);
+				
+				
+				
+				if(answerOne == "A")
+					{
+						board[columnA][0] = "x";
+						columnA = columnA-1;
+						
+					}
+				
+				else if(answerOne == "B")
+					{
+						board[columnB][1] = "x";
+						columnB = columnB-1;
+						
+					}
+				
+				else if(answerOne == "C")
+					{
+						board[columnC][2] = "x";
+						columnC = columnC-1;
+						
+					}
+				
+				else if(answerOne == "D")
+					{
+						board[columnD][3] = "x";
+						columnD = columnD-1;
+						
+					}
+				
+				else if(answerOne == "E")
+					{
+						board[columnE][4] = "x";
+						columnE = columnE-1;
+						
+					}
+				
+				else if(answerOne == "F")
+					{
+						
+						board[columnF][5] = "x";
+						columnF = columnF-1;
+						
+					}
 			
 			}
+		
+	
 	}
 
 
