@@ -6,6 +6,8 @@ public class connectFour
 		
 		static String[][] board = new String[5][6];
 		
+		
+		
 			
 		
 		public static void main(String[] args)
@@ -16,12 +18,10 @@ public class connectFour
 				greetUser();
 				prepareBoard();
 				displayBoard();
-				playGameOne();
+				
+				
+				playGame();
 				displayBoard();
-				
-				
-				
-				//playGameOne();
 				
 				
 				
@@ -49,7 +49,7 @@ public class connectFour
 			
 			}
 		
-		public static void prepareBoard()
+		public static void prepareBoard()  //fills the board with empty spaces 
 		{
 			for(int row = 0; row < board.length; row++)
 				{
@@ -60,7 +60,7 @@ public class connectFour
 				}
 		}
 
-		public static void displayBoard()
+		public static void displayBoard() // displays board with empty spaces
 			{
 				
 				System.out.println("   A   B   C   D   E   F");
@@ -77,7 +77,7 @@ public class connectFour
 				System.out.println(" -------------------------");
 			}
 		
-		public static void playGameOne()
+		public static void playGame()
 			{
 				
 				int columnA = 4;
@@ -140,11 +140,37 @@ public class connectFour
 			
 			}
 		
-	
+		public static void playedBoard()
+		{
+
+			
+		}
+
+		public static void checkForWin()
+		{
+			
+		}
 	}
 
 
 
+
+
+
+//outside of the main method, the 2D array "board" is created
+// the board is prepared by making every space an empty space
+// the board, with its empty spaces, is displayed before any moves have been made
+
+// the difficulty first hits in the "playGame()" method - 
+// a counter that starts at 4 is made for each column (the number represents the row that the piece will land in)
+// each time a player chooses a column to drop their piece in to, the counter is reduced by 1 and the value for the space chosen on the board is returned
+// the [row][col] format is [counter number][column that the player chose]
+// I think this method is good for replacing one part of the board, but it might be hard to use this for both players and multiple moves
+// it's also tricky returning the board with the new move in place - it doesn't even seem like it works when I say [4][0] instead of using the variable 
+// i've researched and I can complete this using one display Board method
+
+// once all of the playing components are figured out, a method for checking for a win needs to be coded. 
+// we can deal with this later 
 
 
 
