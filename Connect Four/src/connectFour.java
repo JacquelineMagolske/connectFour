@@ -95,48 +95,7 @@ public class connectFour
 				
 				
 				
-				if(answerOne == "A")
-					{
-						board[columnA][0] = "x";
-						columnA = columnA-1;
-						
-					}
-				
-				else if(answerOne == "B")
-					{
-						board[columnB][1] = "x";
-						columnB = columnB-1;
-						
-					}
-				
-				else if(answerOne == "C")
-					{
-						board[columnC][2] = "x";
-						columnC = columnC-1;
-						
-					}
-				
-				else if(answerOne == "D")
-					{
-						board[columnD][3] = "x";
-						columnD = columnD-1;
-						
-					}
-				
-				else if(answerOne == "E")
-					{
-						board[columnE][4] = "x";
-						columnE = columnE-1;
-						
-					}
-				
-				else if(answerOne == "F")
-					{
-						
-						board[columnF][5] = "x";
-						columnF = columnF-1;
-						
-					}
+
 			
 			}
 		
@@ -175,3 +134,50 @@ public class connectFour
 
 
 
+
+
+
+// old method for dropping piece - doesn't work
+
+//if(answerOne == "A")
+//{
+//	board[columnA][0] = "x";
+//	columnA = columnA-1;
+//	
+//}
+//
+//else if(answerOne == "B")
+//{
+//	board[columnB][1] = "x";
+//	columnB = columnB-1;
+//	
+//}
+//
+//else if(answerOne == "C")
+//{
+//	board[columnC][2] = "x";
+//	columnC = columnC-1;
+//	
+//}
+//
+//else if(answerOne == "D")
+//{
+//	board[columnD][3] = "x";
+//	columnD = columnD-1;
+//	
+//}
+//
+//else if(answerOne == "E")
+//{
+//	board[columnE][4] = "x";
+//	columnE = columnE-1;
+//	
+//}
+//
+//else if(answerOne == "F")
+//{
+//	
+//	board[columnF][5] = "x";
+//	columnF = columnF-1;
+//	
+//}
