@@ -20,7 +20,7 @@ public class connectFour
 				displayBoard();
 				
 				
-				playGame();
+				placePiece();
 				displayBoard();
 				
 				
@@ -50,7 +50,7 @@ public class connectFour
 			}
 		
 		public static void prepareBoard()  //fills the board with empty spaces 
-		{
+			{
 			for(int row = 0; row < board.length; row++)
 				{
 				for(int col = 0; col < board[row].length; col++)
@@ -58,7 +58,7 @@ public class connectFour
 						board[row][col] = " ";
 					}
 				}
-		}
+			}
 
 		public static void displayBoard() // displays board with empty spaces
 			{
@@ -75,82 +75,73 @@ public class connectFour
 				System.out.println(" -------------------------");
 				System.out.println(" | " + board[4][0] + " | " + board[4][1] + " | " + board[4][2] + " | " + board[4][3] + " | " + board[4][4] + " | " + board[4][5] + " | ");
 				System.out.println(" -------------------------");
+				
+				System.out.println();
+				
+				
 			}
 		
-		public static void playGame()
+		public static void placePiece()
 			{
 				
-				int columnA = 4;
-				int columnB = 4;
-				int columnC = 4;
-				int columnD = 4;
-				int columnE = 4;
-				int columnF = 4;
+//				int columnA = 4;
+//				int columnB = 4;
+//				int columnC = 4;
+//				int columnD = 4;
+//				int columnE = 4;
+//				int columnF = 4;
 				
 				
 				Scanner userInput = new Scanner (System.in);
-				System.out.println("Player 1, which column do you want to put a piece in?");
-				String answerOne = userInput.nextLine();
-				System.out.println("You chose " + answerOne);
+				boolean playerOneMove = true;
+				
+				while(playerOneMove == true)
+				{
+					displayBoard();
+					System.out.println("Player 1, which column do you want to put a piece in?");
+					String answer = userInput.nextLine().toUpperCase();
+					System.out.println("You chose " + answer);
+					
+					int column = answer;
+					
+					
+				}
 				
 				
 				
-				if(answerOne == "A")
-					{
-						board[columnA][0] = "x";
-						columnA = columnA-1;
-						
-					}
 				
-				else if(answerOne == "B")
-					{
-						board[columnB][1] = "x";
-						columnB = columnB-1;
-						
-					}
 				
-				else if(answerOne == "C")
-					{
-						board[columnC][2] = "x";
-						columnC = columnC-1;
-						
-					}
 				
-				else if(answerOne == "D")
-					{
-						board[columnD][3] = "x";
-						columnD = columnD-1;
-						
-					}
 				
-				else if(answerOne == "E")
-					{
-						board[columnE][4] = "x";
-						columnE = columnE-1;
-						
-					}
 				
-				else if(answerOne == "F")
-					{
-						
-						board[columnF][5] = "x";
-						columnF = columnF-1;
-						
-					}
+				
 			
 			}
 		
+		
+		
 		public static void playedBoard()
-		{
+			{
 
-			
-		}
+			}
 
-		public static void checkForWin()
-		{
+		public static void checkVerticalWin()
+			{
 			
-		}
+			}
+		
+		public static void checkHorizontalWin()
+			{
+			
+			}	
+		
+		public static void checkDiagonalWin()
+			{
+			
+			}
+		
 	}
+
 
 
 
@@ -171,6 +162,60 @@ public class connectFour
 
 // once all of the playing components are figured out, a method for checking for a win needs to be coded. 
 // we can deal with this later 
+
+
+
+
+
+
+
+
+
+
+//old code
+
+//if(answerOne == "A")
+//	{
+//		board[columnA][0] = "x";
+//		columnA = columnA-1;
+//		
+//	}
+//
+//else if(answerOne == "B")
+//	{
+//		board[columnB][1] = "x";
+//		columnB = columnB-1;
+//		
+//	}
+//
+//else if(answerOne == "C")
+//	{
+//		board[columnC][2] = "x";
+//		columnC = columnC-1;
+//		
+//	}
+//
+//else if(answerOne == "D")
+//	{
+//		board[columnD][3] = "x";
+//		columnD = columnD-1;
+//		
+//	}
+//
+//else if(answerOne == "E")
+//	{
+//		board[columnE][4] = "x";
+//		columnE = columnE-1;
+//		
+//	}
+//
+//else if(answerOne == "F")
+//	{
+//		
+//		board[columnF][5] = "x";
+//		columnF = columnF-1;
+//		
+//	}
 
 
 
