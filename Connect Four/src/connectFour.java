@@ -6,29 +6,36 @@ public class connectFour
 		
 		static String[][] board = new String[5][6];
 		
+		static boolean gameIsWon = false;
 		
+		static String player1 = "Player 1";
+		static String player2 = "Player 2";
 		
 			
 		
 		public static void main(String[] args)
 			{
-				
-				
-				
 				greetUser();
 				prepareBoard();
-				displayBoard();
 				
 				
-				playGame();
-				displayBoard();
+				while(gameIsWon = false)
+					{
+						displayBoard();
+						placePiece();
+						
+						
+						checkOverallWin();
+					}
 				
+				System.out.println("You won!");
+
 				
 				
 				
 			}
 		
-		public static void greetUser() 
+		public static void greetUser() //greets user
 			{
 			System.out.println("Hello, welcome to Connect Four!");
 			System.out.println(" ");
@@ -50,7 +57,7 @@ public class connectFour
 			}
 		
 		public static void prepareBoard()  //fills the board with empty spaces 
-		{
+			{
 			for(int row = 0; row < board.length; row++)
 				{
 				for(int col = 0; col < board[row].length; col++)
@@ -58,7 +65,7 @@ public class connectFour
 						board[row][col] = " ";
 					}
 				}
-		}
+			}
 
 		public static void displayBoard() // displays board with empty spaces
 			{
@@ -75,41 +82,58 @@ public class connectFour
 				System.out.println(" -------------------------");
 				System.out.println(" | " + board[4][0] + " | " + board[4][1] + " | " + board[4][2] + " | " + board[4][3] + " | " + board[4][4] + " | " + board[4][5] + " | ");
 				System.out.println(" -------------------------");
+				
+				System.out.println();
+				
+				
 			}
 		
-		public static void playGame()
+		public static void placePiece()
 			{
-				
-				int columnA = 4;
-				int columnB = 4;
-				int columnC = 4;
-				int columnD = 4;
-				int columnE = 4;
-				int columnF = 4;
-				
-				
+			
 				Scanner userInput = new Scanner (System.in);
-				System.out.println("Player 1, which column do you want to put a piece in?");
-				String answerOne = userInput.nextLine();
-				System.out.println("You chose " + answerOne);
+				System.out.println();
 				
 				
+				boolean openSpace = true;
 				
-
+				while(openSpace == true)
+					{
+						
+					}
+			
+				
 			
 			}
 		
-		public static void playedBoard()
-		{
+		
+		
 
+		public static void checkVerticalWin() // gameIsWon = false, unless one of these finds a row of 4, making it true
+			{
 			
-		}
-
-		public static void checkForWin()
-		{
+			}
+		
+		public static void checkHorizontalWin()
+			{
 			
-		}
+			}	
+		
+		public static void checkDiagonalWin()
+			{
+			
+			}
+		
+		public static void checkOverallWin()
+			{
+			
+			checkVerticalWin();
+			checkHorizontalWin();
+			checkDiagonalWin();
+			
+			}
 	}
+
 
 
 
@@ -181,3 +205,4 @@ public class connectFour
 //	columnF = columnF-1;
 //	
 //}
+
