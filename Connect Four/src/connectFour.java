@@ -6,10 +6,13 @@ public class connectFour
 		
 		static String[][] board = new String[5][6];
 		
-		static boolean gameIsWon = false;
 		
-		static String player1 = "Player 1";
-		static String player2 = "Player 2";
+		static boolean gameIsWon = false;
+		static boolean playerOneTurn = true;
+		
+		
+//		static String player1 = "Player 1";
+//		static String player2 = "Player 2";
 		
 			
 		
@@ -17,6 +20,8 @@ public class connectFour
 			{
 				greetUser();
 				prepareBoard();
+				
+			
 				
 				
 				while(gameIsWon = false)
@@ -28,6 +33,7 @@ public class connectFour
 						checkOverallWin();
 					}
 				
+				displayBoard();
 				System.out.println("You won!");
 
 				
@@ -70,7 +76,7 @@ public class connectFour
 		public static void displayBoard() // displays board with empty spaces
 			{
 				
-				System.out.println("   A   B   C   D   E   F");
+				System.out.println("   0   1   2   3   4   5");
 				System.out.println(" -------------------------");
 				System.out.println(" | " + board[0][0] + " | " + board[0][1] + " | " + board[0][2] + " | " + board[0][3] + " | " + board[0][4] + " | " + board[0][5] + " | ");
 				System.out.println(" -------------------------");
@@ -92,44 +98,145 @@ public class connectFour
 			{
 			
 				Scanner userInput = new Scanner (System.in);
-				System.out.println();
+				
+				int column; //need to get users input
+				boolean freeSpace = false;
 				
 				
-				boolean openSpace = true;
-				
-				while(openSpace == true)
+				while(!freeSpace)
 					{
-						
+						if(playerOneTurn)
+						{
+							System.out.println("Player 1, which column 0-5 do you want to play in?");
+							
+						}
+						else
+						{
+							System.out.println("Player 2, which column 0-5 do you want to play in?");
+						}
 					}
-			
+				
+				column = userInput.nextInt();
+				
+				if(column >= 0 && column < 6)
+				{
+					for(int row = board.length-1; row >= 0; row--)
+					{
+						if(board[row][column].equals(" "))
+						{
+							if(playerOneTurn) //initialized as a static boolean - initially true
+							{
+								board[row][column] = "X";
+							}
+							
+							else
+							{
+								board[row][column] = "O";
+							}
+							
+							playerOneTurn = !playerOneTurn; // switches between players
+							
+							freeSpace = true;
+							
+							break;
+						}
+					}
+				}
+				
+				if(!freeSpace)
+				{
+					System.out.println("How can you not see that the column is clearly full?? Try another column...");
+				}
+				else
+				{
+					System.out.println("Um...that column doesn't exist bozo. Try another one");
+				}
+				
+				
 				
 			
 			}
 		
 		
 		
-
-		public static void checkVerticalWin() // gameIsWon = false, unless one of these finds a row of 4, making it true
+		// gameIsWon = false, unless one of these finds a row of 4, making it true
+		public static void checkVerticalWin() //check for four filled slots in a single column
 			{
+			
+				for(int col = 0; col < 6; col++)
+				{
+					for(int row = 0; row < 2; row++) // to be able to fill a column with 4, it has to start at index 0 or 1
+					{		//checks that current space isn't empty and if next few cells are all equal to that cell
+						if(!board[row][col].equals(" ") &&
+							board[row][col].equals(board[row + 1][col]) &&
+							board[row][col].equals(board[row + 2][col]) &&
+							board[row][col].equals(board[row + 3][col]))
+							{
+								gameIsWon = true;
+							}
+					}
+				}
 			
 			}
 		
 		public static void checkHorizontalWin()
 			{
-			
+				for(int row = 0; row < 5; row++) // go through each row...
+				{
+					for(int col = 0; col < 3; col++) // stop at 3 - no out bounds when looking for 4 matching slots 
+					{		//checks that current space isn't empty and if next few cells are all equal to that cell
+						if(!board[row][col].equals(" ") &&
+							board[row][col].equals(board[row][col+1]) &&
+							board[row][col].equals(board[row][col+2]) &&
+							board[row][col].equals(board[row][col+3]))
+							{
+								gameIsWon = true;
+							}
+					}
+				}
 			}	
 		
-		public static void checkDiagonalWin()
+		public static void checkDiagonalWinLowerLToR() // starts at bottom left, goes up to the right
 			{
-			
+			for(int row = 3; row < 5; row++)
+				{
+				for(int col = 0; col < 3; col++)
+					{
+					if(!board[row][col].equals(" ") &&
+						board[row][col].equals(board[row-1][col+1]) &&
+						board[row][col].equals(board[row-2][col+2]) &&
+						board[row][col].equals(board[row-3][col+3]))
+						{
+							gameIsWon = true;
+						}
+					}
+				}
 			}
 		
+		public static void checkDiagonalWinUpperLToR() // starts at top left, goes up to the right 
+			{
+			for(int row =0; row < 2; row++)
+				{
+				for(int col = 0; col < 3; col++)
+					{
+					if(!board[row][col].equals(" ") &&
+						board[row][col].equals(board[row+1][col+1]) &&
+						board[row][col].equals(board[row+2][col+2]) &&
+						board[row][col].equals(board[row+3][col+3]))
+						{
+							gameIsWon = true;
+						}
+					}
+				}
+			}
+			
 		public static void checkOverallWin()
 			{
 			
 			checkVerticalWin();
 			checkHorizontalWin();
-			checkDiagonalWin();
+			checkDiagonalWinLowerLToR();
+			checkDiagonalWinUpperLToR();
 			
 			}
 	}
